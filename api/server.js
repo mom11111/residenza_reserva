@@ -7,7 +7,7 @@ const rooms = require('../api/routes/roomSummary')
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 
-mongoose.connect('mongodb+srv://nishant:Ok123456@@cluster0.q0kza.mongodb.net/test?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://nishant:<password>@cluster0.q0kza.mongodb.net/test?retryWrites=true&w=majority',{
     useNewUrlParser:true,
     useUnifiedTopology:true
 },(err,res)=>{
@@ -18,8 +18,6 @@ mongoose.connect('mongodb+srv://nishant:Ok123456@@cluster0.q0kza.mongodb.net/tes
     }
 });
 
-//mongodb+srv://nishant:<password>@cluster0.3etr9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-//mongodb+srv://nishant:Ok123456@@cluster0.q0kza.mongodb.net/test?retryWrites=true&w=majority
 app.use(auth);
 app.use(rooms)
 const port = 4000 || process.env.port;
